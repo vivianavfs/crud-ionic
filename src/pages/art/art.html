@@ -8,6 +8,12 @@
 
   <ion-navbar>
     <ion-title>Top Arts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()" color="primary">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-icon name="art"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,10 +21,19 @@
 
 <ion-content padding>
 
-	<ion-list>
-		<ion-item *ngFor="let art of arts">
+	<ion-list inset>
+    <ion-item-sliding *ngFor="let art of arts">
+		<ion-item (click)="openModal({id: art.id})">
+      <ion-avatar item-left>
+        <img src="{{art.imageURL}}">
+      </ion-avatar>
 			<h2>{{art.name}}</h2>
 		</ion-item>
+    <ion-item-options>
+      <button ion-button color="danger" (click)="remove(art)">
+        <ion-icon name="trash"></ion-icon> Delete
+      </button>
+    </ion-item-options>
+    </ion-item-sliding>
 	</ion-list>
-
 </ion-content>

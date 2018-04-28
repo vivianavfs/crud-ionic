@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ArtService } from '../providers/art-service';
 import {HttpClientModule} from '@angular/common/http';
+import { ArtPageModule } from '../pages/art/art.module'
 
 @NgModule({
   declarations: [
@@ -20,13 +21,13 @@ import {HttpClientModule} from '@angular/common/http';
     AboutPage,
     ContactPage,
     HomePage,
-    ArtPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    ArtPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
